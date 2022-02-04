@@ -16,7 +16,8 @@ class TransactionsController < ApplicationController
       :private_key => "aef19197d1a15e676d2263c9bd71c91f",
     )
     @transaction = gateway.transaction.sale(
-      :amount => "10.00",
+      :amount => params[:transaction][:amount],
+      :merchant_account_id => params[:transaction][:merchant_account_id],
       :payment_method_nonce => params[:transaction][:nonce],
       :device_data => params[:transaction][:details],
       :options => {
